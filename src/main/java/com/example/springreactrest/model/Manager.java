@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Employee {
+public class Manager {
 
     @Id
     @GeneratedValue
@@ -19,26 +19,25 @@ public class Employee {
 
     private String email;
 
-    private String role;
+    private final String role = "Manager";
 
-    public Employee() {
+    public Manager() {
     }
 
-    public Employee(String firstName, String lastName, String email, String role) {
+    public Manager(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.role = role;
     }
 
     @Override
     public boolean equals(Object object) {
         if (this == object)
             return true;
-        if (!(object instanceof Employee)) {
+        if (!(object instanceof Manager)) {
             return false;
         }
-        Employee employee = (Employee) object;
+        Manager employee = (Manager) object;
         return Objects.equals(id, employee.id) &&
                 Objects.equals(firstName, employee.firstName) &&
                 Objects.equals(lastName, employee.lastName) &&
@@ -86,13 +85,9 @@ public class Employee {
         return role;
     }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
-
     @Override
     public String toString() {
-        return "Employee{ id=" + id + ", firstName='" + firstName + "', lastName='" + lastName
+        return "Manager{ id=" + id + ", firstName='" + firstName + "', lastName='" + lastName
                 + "', email='" + email + "', role='" + role + "'}";
     }
 }
