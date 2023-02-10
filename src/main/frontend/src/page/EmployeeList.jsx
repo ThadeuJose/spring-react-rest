@@ -13,8 +13,8 @@ export default function EmployeesList() {
   }
 
   return data.map(elem => (
-    <div key={elem.firstName}>
-      {elem.firstName} {elem.lastName} {elem.description}
+    <div key={elem.id}>
+      {elem.firstName} {elem.lastName} {elem.role} {elem.email}
     </div>
   ));
 }
